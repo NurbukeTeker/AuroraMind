@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="figures/logo.png" alt="AuroraMind Logo" width="250"/>
+</p>
+
 # 🌈 AuroraMind – Text-to-Aura Analyzer
 
 Discover your emotional color through AI.  
