@@ -1,8 +1,18 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from transformers import pipeline
 
 app = FastAPI()
+
+# ✅ CORS ayarı — Frontend'e izin ver
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Geliştirme için tüm kaynaklara izin ver
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 model = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base")
 
