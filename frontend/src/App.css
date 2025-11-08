@@ -40,3 +40,7 @@
 .read-the-docs {
   color: #888;
 }
+input::placeholder {
+  font-style: italic;
+  opacity: 0.7;
+}

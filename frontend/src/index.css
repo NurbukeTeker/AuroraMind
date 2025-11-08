@@ -106,3 +106,12 @@ body,
     text-shadow: 0 0 20px rgba(190, 160, 255, 0.3);
   }
 }
+.aurora-outline {
+  position: relative;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#f8f4ed, #f8f4ed),
+    linear-gradient(90deg, #b69cff, #a0c4ff, #ffc8dd);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 9999px;
+}

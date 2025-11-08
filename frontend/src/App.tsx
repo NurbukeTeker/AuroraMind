@@ -63,23 +63,38 @@ function App() {
           </div>
         </div>
 
-        {/* Input area */}
-        <div className="flex w-[780px] h-20 bg-[#f8f4ed]/85 rounded-full backdrop-blur-md shadow-[inset_0_2px_6px_rgba(255,255,255,0.6),0_8px_14px_rgba(0,0,0,0.1)] border border-[#e4dacb]/70 transition-all duration-500">
-          <textarea
-            className="flex-grow px-8 py-4 text-[#4b3b2e] text-xl bg-transparent resize-none focus:outline-none placeholder-[#9c8e7f]"
-            placeholder="Type something to reveal your aura..."
+       {/* Input area */}
+        <div className="flex items-center justify-between w-[880px] h-[90px] bg-[#fdfaf6]/95 rounded-[2.5rem] backdrop-blur-md border border-[#e4dacb]/70 shadow-[0_6px_16px_rgba(0,0,0,0.08)] px-8 transition-all duration-500">
+          <input
+            type="text"
+            className="flex-grow bg-transparent border-none outline-none text-[#4b3b2e] text-lg placeholder-[#b4a697] px-4 leading-relaxed"
+            placeholder="🌷 Write something heartfelt and let AuroraMind feel your vibe..."
             value={text}
-            onChange={(e) => setText(e.target.value)}
-            rows={1}
+            onChange={(e) => setText(e.target.value.slice(0, 250))}
           />
+
           <button
-            onClick={analyzeText}
-            disabled={loading}
-            className="px-10 bg-[#efe3cf] hover:bg-[#f3e8d6] text-[#3b2e20] font-semibold rounded-r-full text-xl transition-all duration-300"
-          >
-            {loading ? "..." : "Analyze"}
-          </button>
+          onClick={analyzeText}
+          disabled={loading}
+          className={`
+            flex items-center justify-center px-10 py-3 text-base font-semibold
+            rounded-full border-2 transition-all duration-300
+            ${loading
+              ? "border-[#9c8e7f]/40 text-[#9c8e7f]/40 cursor-not-allowed"
+              : "border-[#3b2e20]/60 text-[#3b2e20] hover:border-[#8b7355] hover:text-[#8b7355] hover:bg-[#f8f4ed]/40"
+            }
+          `}
+        >
+          {loading ? (
+            <div className="w-5 h-5 border-2 border-[#3b2e20]/60 border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            "Analyze"
+          )}
+        </button>
         </div>
+
+
+
 
         {/* Result */}
         {result && (
